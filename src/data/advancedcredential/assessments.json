@@ -1,0 +1,141 @@
+[
+  {
+    "id": 0,
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Evaluación Global",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Evaluación Global",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": {
+      "contents": [
+        {
+          "content": "Evaluación continua mediante la realización y superación de todas las actividades prácticas propuestas (seis actividades), la realización de un caso práctico global y un examen final presencial",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "additionalNote": [],
+    "grade": null,
+    "shortenedGrading": null,
+    "resultDistribution": null,
+    "dateIssued": null,
+    "idVerification": {
+      "uri": "http://data.europa.eu/snb/supervision-verification/df2880c5cb",
+      "targetName": {
+        "contents": [
+          {
+            "content": "No supervisado con verificación de la identidad",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "location": null,
+    "specifiedBy": {
+      "identifier": [],
+      "assessmentType": null,
+      "title": {
+        "contents": [
+          {
+            "content": "Evaluación Global",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "altLabel": null,
+      "description": null,
+      "additionalNote": [],
+      "homePage": [],
+      "supplementaryDocument": [],
+      "language": [],
+      "mode": [
+        {
+          "uri": "http://data.europa.eu/snb/learning-assessment/e92d221e4d",
+          "targetName": {
+            "contents": [
+              {
+                "content": "Mixto",
+                "language": "es",
+                "format": "text/plain"
+              }
+            ]
+          },
+          "targetDescription": null,
+          "targetFrameworkURI": "",
+          "targetNotation": null,
+          "targetFramework": null
+        }
+      ],
+      "gradingScheme": {
+        "identifier": [],
+        "title": {
+          "contents": [
+            {
+              "content": "Sistema de calificación cualitativa: APTO/NO APTO. CREDITOS RECONOCIDOS para asignatura convalidada",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "description": null,
+        "supplementaryDocument": []
+      },
+      "proves": [],
+      "dcType": [
+        {
+          "uri": null,
+          "targetName": {
+            "contents": [
+              {
+                "content": "Evaluación continua",
+                "language": "es",
+                "format": "text/plain"
+              }
+            ]
+          },
+          "targetDescription": null,
+          "targetFrameworkURI": null,
+          "targetNotation": null,
+          "targetFramework": null
+        }
+      ]
+    },
+    "relHasPart": {
+      "oid": [
+        0
+      ],
+      "singleOid": 0
+    },
+    "relAssessedBy": {
+      "oid": [
+      ],
+      "singleOid": 0
+    },
+    "relAwardingBody": {
+      "oid": [
+        3
+      ],
+      "singleOid": 3
+    }
+  }
+]

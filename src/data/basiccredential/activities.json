@@ -1,0 +1,83 @@
+[
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Asistencia a evento en UC3M",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Asistencia a evento en UC3M",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": null,
+    "additionalNote": [],
+    "temporal": [],
+    "workload": 15,
+    "volumeOfLearning": 15,
+    "awardedBy": {
+      "identifier": [],
+      "description": null,
+      "additionalNote": [],
+      "awardingDate": null,
+      "awardingLocation": null,
+      "educationalSystemNote": null
+    },
+    "location": [],
+    "startedAtTime": "2024-03-02T23:00:00Z",
+    "endedAtTime": "2024-03-04T23:00:00Z",
+    "levelOfCompletion": null,
+    "usedLearningOpportunity": null,
+    "specifiedBy": {
+      "identifier": [],
+      "learningActivityType": [],
+      "title": {
+        "contents": [
+          {
+            "content": "API - Asistencia a evento en UC3M",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "altLabel": null,
+      "description": null,
+      "additionalNote": [],
+      "homePage": [],
+      "supplementaryDocument": [],
+      "volumeOfLearning": 15,
+      "language": [],
+      "mode": [
+        {
+          "uri": "http://data.europa.eu/snb/learning-assessment/e92d221e4d",
+          "contents": []
+        }
+      ],
+      "contactHours": []
+    },
+    "relDirectedBy": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relInfluenced": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relHasPart": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relAwardingBody": {
+      "oid": [],
+      "singleOid": null
+    }
+  }
+]

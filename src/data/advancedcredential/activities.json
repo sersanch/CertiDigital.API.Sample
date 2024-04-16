@@ -1,0 +1,105 @@
+[
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Clases teórico-prácticas",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Clases teórico-prácticas",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": {
+      "contents": [
+        {
+          "content": "Sesiones online/presenciales de naturaleza teórico-práctica",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "additionalNote": [{
+      "contents": [
+        {
+          "content": "BREVE RESUMEN DE CONTENIDOS:\n·       Identidad digital, privacidad e implicaciones éticas del uso de información en el ámbito digital.\n·       Técnicas avanzadas de búsqueda en la web y bases de datos académicas.\n·       Uso avanzado de herramientas de gestión bibliográfica.\n·       Colaboración y generación compartida de información en la nube (Google Docs, Jamboard). Ética en la generación de contenidos por IA (textos, imágenes, audiovisuales).\n",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ],
+      "topic": "string"
+    }],
+    "temporal": [],
+    "workload": 15,
+    "volumeOfLearning": 15,
+    "awardedBy": {
+      "identifier": [],
+      "description": null,
+      "additionalNote": [],
+      "awardingDate": null,
+      "awardingLocation": null,
+      "educationalSystemNote": null
+    },
+    "location": [],
+    "startedAtTime": null,
+    "endedAtTime": null,
+    "levelOfCompletion": null,
+    "usedLearningOpportunity": null,
+    "specifiedBy": {
+      "identifier": [],
+      "learningActivityType": [
+        {
+          "uri": "http://data.europa.eu/snb/learning-activity/fd33e234ae",
+          "contents": []
+        }
+      ],
+      "title": {
+        "contents": [
+          {
+            "content": "Clases teórico-prácticas",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "altLabel": null,
+      "description": null,
+      "additionalNote": [],
+      "homePage": [],
+      "supplementaryDocument": [],
+      "volumeOfLearning": 15,
+      "language": [],
+      "mode": [
+        {
+          "uri": "http://data.europa.eu/snb/learning-assessment/e92d221e4d",
+          "contents": []
+        }
+      ],
+      "contactHours": []
+    },
+    "relDirectedBy": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relInfluenced": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relHasPart": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relAwardingBody": {
+      "oid": [],
+      "singleOid": null
+    }
+  }
+]

@@ -1,0 +1,441 @@
+[
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Tener conciencia del contexto multidisciplinar de la ciencia",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Tener conciencia del contexto multidisciplinar de la ciencia",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": null,
+    "learningOutcomeType": {
+      "uri": "http://data.europa.eu/snb/skill-type/knowledge",
+      "targetName": {
+        "contents": [
+          {
+            "content": "conocimiento",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-type/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "reusabilityLevel": {
+      "uri": "http://data.europa.eu/snb/skill-reuse-level/transversal",
+      "targetName": {
+        "contents": [
+          {
+            "content": "Capacidades y competencias transversales",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-reuse-level/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "relatedESCOSkill": [],
+    "relatedSkill": []
+  },
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Capacidad de realizar búsquedas bibliográficas, utilizar bases de datos y otras fuentes de información",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Capacidad de realizar búsquedas bibliográficas, utilizar bases de datos y otras fuentes de información",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": null,
+    "learningOutcomeType": {
+      "uri": "http://data.europa.eu/snb/skill-type/skill",
+      "targetName": {
+        "contents": [
+          {
+            "content": "capacidad",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-type/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "reusabilityLevel": {
+      "uri": "http://data.europa.eu/snb/skill-reuse-level/transversal",
+      "targetName": {
+        "contents": [
+          {
+            "content": "Capacidades y competencias transversales",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-reuse-level/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "relatedESCOSkill": [
+      {
+        "uri": "http://data.europa.eu/esco/skill/698be2d3-8768-422d-a2d3-1cb701816089",
+        "targetName": {
+          "contents": [
+            {
+              "content": "buscar información en línea",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      },
+      {
+        "uri": "http://data.europa.eu/esco/skill/e439742d-558d-4f52-885e-afdc740b48cf",
+        "targetName": {
+          "contents": [
+            {
+              "content": "navegar, buscar y filtrar datos, información y contenidos digitales",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      },
+      {
+        "uri": "http://data.europa.eu/esco/skill/a1388163-462a-4b76-8649-67470ea858a1",
+        "targetName": {
+          "contents": [
+            {
+              "content": "buscar en bases de datos",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      }
+    ],
+    "relatedSkill": []
+  },
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Trabajar de forma efectiva tanto de forma individual como en equipo",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Trabajar de forma efectiva tanto de forma individual como en equipo",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": null,
+    "learningOutcomeType": {
+      "uri": "http://data.europa.eu/snb/skill-type/skill",
+      "targetName": {
+        "contents": [
+          {
+            "content": "capacidad",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-type/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "reusabilityLevel": {
+      "uri": "http://data.europa.eu/snb/skill-reuse-level/transversal",
+      "targetName": {
+        "contents": [
+          {
+            "content": "Capacidades y competencias transversales",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-reuse-level/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "relatedESCOSkill": [
+      {
+        "uri": "http://data.europa.eu/esco/skill/7a93e22f-54d8-4bf0-9213-d711f6601b49",
+        "targetName": {
+          "contents": [
+            {
+              "content": "trabajar eficientemente",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      },
+      {
+        "uri": "http://data.europa.eu/esco/skill/60c78287-22eb-4103-9c8c-28deaa460da0",
+        "targetName": {
+          "contents": [
+            {
+              "content": "trabajar en equipos",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      }
+    ],
+    "relatedSkill": []
+  },
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Utilizar distintos métodos para comunicarse de forma efectiva con la comunidad de científicos y con la sociedad en general",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Utilizar distintos métodos para comunicarse de forma efectiva con la comunidad de científicos y con la sociedad en general",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": null,
+    "learningOutcomeType": {
+      "uri": "http://data.europa.eu/snb/skill-type/skill",
+      "targetName": {
+        "contents": [
+          {
+            "content": "capacidad",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-type/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "reusabilityLevel": {
+      "uri": "http://data.europa.eu/snb/skill-reuse-level/transversal",
+      "targetName": {
+        "contents": [
+          {
+            "content": "Capacidades y competencias transversales",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-reuse-level/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "relatedESCOSkill": [
+      {
+        "uri": "http://data.europa.eu/esco/skill/3c6cd54b-e206-47a4-90c8-d19ff4523f34",
+        "targetName": {
+          "contents": [
+            {
+              "content": "contactar con científicos",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      },
+      {
+        "uri": "http://data.europa.eu/esco/skill/3c834f6e-523a-49ee-8ed1-e073e28ae6fe",
+        "targetName": {
+          "contents": [
+            {
+              "content": "desarrollar estrategias de comunicación",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      }
+    ],
+    "relatedSkill": []
+  },
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Reconocer la necesidad y tener la capacidad para desarrollar voluntariamente el aprendizaje continuo",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Reconocer la necesidad y tener la capacidad para desarrollar voluntariamente el aprendizaje continuo",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": null,
+    "learningOutcomeType": {
+      "uri": "http://data.europa.eu/snb/skill-type/skill",
+      "targetName": {
+        "contents": [
+          {
+            "content": "capacidad",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-type/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "reusabilityLevel": {
+      "uri": "http://data.europa.eu/snb/skill-reuse-level/sector-specific",
+      "targetName": {
+        "contents": [
+          {
+            "content": "Capacidades y competencias específicas del sector",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "targetDescription": null,
+      "targetFrameworkURI": "http://data.europa.eu/snb/skill-reuse-level/25831c2",
+      "targetNotation": null,
+      "targetFramework": null
+    },
+    "relatedESCOSkill": [
+      {
+        "uri": "http://data.europa.eu/esco/skill/1835a7c1-600e-4b16-a0af-fb4f7d8d77b9",
+        "targetName": {
+          "contents": [
+            {
+              "content": "desarrollar competencias personales",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      },
+      {
+        "uri": "http://data.europa.eu/esco/skill/4bf37ee3-2c8b-44cc-9f91-3eeda46e8c5b",
+        "targetName": {
+          "contents": [
+            {
+              "content": "evaluar las necesidades formativas",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      },
+      {
+        "uri": "http://data.europa.eu/esco/skill/a44c0ed6-68b1-457a-9c6d-ea8487bdfeb2",
+        "targetName": {
+          "contents": [
+            {
+              "content": "utilizar estrategias de aprendizaje",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/esco/concept-scheme/skills",
+        "targetNotation": "Skill",
+        "targetFramework": null
+      }
+    ],
+    "relatedSkill": []
+  }
+]

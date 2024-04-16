@@ -1,0 +1,174 @@
+[
+  {
+    "additionalInfo": {
+      "languages": [
+        "es"
+      ]
+    },
+    "displayName": "API - Manejo de información (Nivel de profundización)",
+    "label": null,
+    "defaultLanguage": "es",
+    "title": {
+      "contents": [
+        {
+          "content": "API - Manejo de información (Nivel de profundización)",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "identifier": [],
+    "description": {
+      "contents": [
+        {
+          "content": "API - Los objetivos de este curso son adquirir conocimientos avanzados sobre la identificación de información fiable en la sociedad digital, la recuperación y organización de la información, y el uso ético de la información",
+          "language": "es",
+          "format": "text/plain"
+        }
+      ]
+    },
+    "additionalNote": [],
+    "awardedBy": {
+      "identifier": [],
+      "description": null,
+      "additionalNote": [],
+      "awardingDate": null,
+      "awardingLocation": null,
+      "educationalSystemNote": null
+    },
+    "specifiedBy": {
+      "identifier": [],
+      "learningOpportunityType": [],
+      "title": {
+        "contents": [
+          {
+            "content": "API - Manejo de información (Nivel de profundización)",
+            "language": "es",
+            "format": "text/plain"
+          }
+        ]
+      },
+      "altLabel": null,
+      "definition": null,
+      "learningOutcomeSummary": null,
+      "additionalNote": [],
+      "homePage": [],
+      "supplementaryDocument": [],
+      "thematicArea": [
+        {
+          "uri": "http://data.europa.eu/snb/isced-f/06",
+          "targetName": {
+            "contents": [
+              {
+                "content": "06 - Tecnologías de la información y la comunicación (TIC)",
+                "language": "es",
+                "format": "text/plain"
+              }
+            ]
+          },
+          "targetDescription": null,
+          "targetFrameworkURI": "http://data.europa.eu/snb/isced-f/25831c2",
+          "targetNotation": null,
+          "targetFramework": null
+        }
+      ],
+      "educationSubject": [],
+      "volumeOfLearning": 75,
+      "creditPoints": [
+        {
+          "framework": {
+            "uri": "http://data.europa.eu/snb/education-credit/60b314e826",
+            "targetName": {
+              "contents": [
+                {
+                  "content": "Sistema Europeo de Créditos para la Formación Profesional",
+                  "language": "es",
+                  "format": "text/plain"
+                }
+              ]
+            },
+            "targetDescription": null,
+            "targetFrameworkURI": "http://data.europa.eu/snb/education-credit/25831c2",
+            "targetNotation": null,
+            "targetFramework": null
+          },
+          "point": "3"
+        }
+      ],
+      "educationLevel": [],
+      "language": [],
+      "mode": [
+        {
+          "uri": "http://data.europa.eu/snb/learning-assessment/920fbb3cbe",
+          "targetName": {
+            "contents": [
+              {
+                "content": "En línea",
+                "language": "es",
+                "format": "text/plain"
+              }
+            ]
+          },
+          "targetDescription": null,
+          "targetFrameworkURI": "http://data.europa.eu/snb/learning-assessment/25831c2",
+          "targetNotation": null,
+          "targetFramework": null
+        }
+      ],
+      "learningSetting": {
+        "uri": "http://data.europa.eu/snb/learning-setting/6fd4685715",
+        "targetName": {
+          "contents": [
+            {
+              "content": "Aprendizaje formal",
+              "language": "es",
+              "format": "text/plain"
+            }
+          ]
+        },
+        "targetDescription": null,
+        "targetFrameworkURI": "http://data.europa.eu/snb/learning-setting/25831c2",
+        "targetNotation": null,
+        "targetFramework": null
+      },
+      "maximumDuration": 4,
+      "targetGroup": [],
+      "entryRequirement": null,
+      "awardingOpportunity": [],
+      "eqfLevel": null,
+      "nqfLevel": [],
+      "nqfLevelParent": null,
+      "qualificationCode": [],
+      "dcType": [],
+      "partialQualification": null
+    },
+    "relAwardingBody": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relProvenBy": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relInfluencedBy": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relEntitlesTo": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relSubAchievements": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relLearningOutcomes": {
+      "oid": [],
+      "singleOid": null
+    },
+    "relAccreditation": {
+      "oid": [],
+      "singleOid": null
+    }
+  }
+]

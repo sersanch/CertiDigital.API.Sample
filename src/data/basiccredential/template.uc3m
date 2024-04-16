@@ -1,0 +1,39 @@
+<div style="font-style: normal; padding-bottom: 3rem; padding-top: 15rem;">
+ <div style="flex: 0 0 100%; max-width: 100%; display: block; text-align: center;">
+ <br/>
+ <p style="font-size: 24px;padding-top: 9rem;margin-left: 80px; margin-right: 80px;" th:text="#{intro}">></p>
+
+
+ </div>
+ <div style="flex: 0 0 100%; max-width: 100%;">
+ <p style="padding-left: 0.5rem !important; margin: 2rem 1.4em; text-align: center !important;
+font-weight: 700 !important; color: #00067A !important;  font-size: 31px;" th:text="${credential.credentialSubject.fullName}"></p>
+ </div>
+
+ <div style="flex: 0 0 100%; max-width: 100%;">
+ <p style="text-align: center; font-size: 24px; margin-left: 80px; margin-right: 80px;margin-bottom:  2rem;" th:text="#{dia}">>
+ </p>
+ </div>
+    
+ <div style="flex: 0 0 100%; max-width: 100%;">
+ <p style="font-weight: 900 !important; font-size: 32px;  margin-bottom: 1.5rem;height: 2.5cm;
+color: #00067A !important; text-align: center; font-style: italic !important;margin-left: 90px; margin-right: 90px;" th:text="${credential.displayParameter.title}"></p>
+ </div>
+    
+ <div style="flex: 0 0 100%; max-width: 100%;">
+ <p style="text-align: center; font-size: 24px; margin-left: 80px; margin-right: 80px;margin-bottom:  1.5rem;" th:text="#{lugar}">
+ </p>
+ </div>
+
+    <div style="flex: 0 0 100%; max-width: 100%;  margin-top: 2rem; height: 3.3cm;">
+ <p style="text-align: center; font-size: 16px;margin-left: 80px; margin-right: 80px;" th:text="#{descripcion}">
+ </p>
+ </div>
+ 
+ <div style="flex: 0 0 100%; max-width: 100%; margin-left: 3rem;">
+ <p style="font-style: oblique; text-align: center; font-weight: 300 !important;"  th:text="#{firma}"> </p>
+<p th:text="${#temporals.format(credential.issuanceDate, 'dd-MM-yyyy HH:mm')}"></p>
+ </div>
+
+
+</div>
