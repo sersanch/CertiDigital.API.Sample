@@ -5,7 +5,7 @@
   },
   {
     "apiId": "getUserInfo",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/users"
+    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/users/info"
   },
   {
     "apiId": "getIssuingCentersInfo",
@@ -50,5 +50,21 @@
   {
     "apiId": "deleteAchievement",
     "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/achievements"
+  },
+  {
+    "apiId": "getEmissionsBlockData",
+    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions-block"
+  },
+  {
+    "apiId": "emissionsSend",
+    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions/send"
+  },
+  {
+    "apiId": "emissionsSeal",
+    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions/seal"
+  },
+  {
+    "apiId": "emissionsSendEUWallet",
+    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions/sendeuwallet"
   }
 ]

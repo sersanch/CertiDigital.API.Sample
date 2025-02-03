@@ -1,0 +1,89 @@
+{
+  "customizableEntityViews": [
+    {
+      "label": "Datos Personales",
+      "specClass": "eu.europa.ec.empl.edci.issuer.common.model.RecipientDataDTO",
+      "position": 1,
+      "fields": [
+        {
+          "position": 1,
+          "label": "Nombre",
+          "fieldPath": "REC.givenName",
+          "mandatory": true,
+          "relationDependant": null,
+          "additionalInfo": null
+        },
+        {
+          "position": 2,
+          "label": "Apellidos",
+          "fieldPath": "REC.familyName",
+          "mandatory": true,
+          "relationDependant": null,
+          "additionalInfo": null
+        },
+        {
+          "position": 3,
+          "label": "Delivery (Email or Wallet) Address",
+          "fieldPath": "REC.primaryDeliveryAddress",
+          "mandatory": true,
+          "relationDependant": null,
+          "additionalInfo": null
+        },
+        {
+          "position": 4,
+          "label": "Second Delivery Address",
+          "fieldPath": "REC.secondaryDeliveryAddress",
+          "mandatory": true,
+          "relationDependant": null,
+          "additionalInfo": null
+        }
+      ],
+      "relations": []
+    },
+    {
+      "label": "Datos de la credencial",
+      "specClass": "eu.europa.ec.empl.edci.issuer.entity.specs.EuropassCredentialSpecDAO",
+      "position": 2,
+      "fields": [],
+      "relations": []
+    },
+    {
+      "label": "Datos de resultados",
+      "specClass": "eu.europa.ec.empl.edci.issuer.entity.specs.LearningAchievementSpecDAO",
+      "position": 3,
+      "fields": [],
+      "relations": []
+    },
+    {
+      "label": "Datos de Actividad",
+      "specClass": "eu.europa.ec.empl.edci.issuer.entity.specs.LearningActivitySpecDAO",
+      "position": 4,
+      "fields": [],
+      "relations": []
+    },
+    {
+      "label": "Datos de la evaluación",
+      "specClass": "eu.europa.ec.empl.edci.issuer.entity.specs.LearningAssessmentSpecDAO",
+      "position": 5,
+      "fields": [
+        {
+          "position": 4,
+          "label": "Calificación",
+          "fieldPath": "ASM{$entityId}.grade.noteLiteral($lang)",
+          "mandatory": true,
+          "relationDependant": null,
+          "additionalInfo": null,
+          "checked": null
+        }
+      ],
+      "relations": []
+    },
+    {
+      "label": "Datos de Derechos",
+      "specClass": "eu.europa.ec.empl.edci.issuer.entity.specs.EntitlementSpecDAO",
+      "position": 6,
+      "fields": [],
+      "relations": []
+    }
+  ]
+}

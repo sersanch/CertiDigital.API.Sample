@@ -45,7 +45,7 @@
         ]
       },
       "targetDescription": null,
-      "targetFrameworkURI": "",
+      "targetFrameworkURI": null,
       "targetNotation": null,
       "targetFramework": null
     },
@@ -81,7 +81,7 @@
             ]
           },
           "targetDescription": null,
-          "targetFrameworkURI": "",
+          "targetFrameworkURI": null,
           "targetNotation": null,
           "targetFramework": null
         }

@@ -1,10 +1,8 @@
 """ Test for the creation of an advanced credential for a course with several subjects and assessments... """
 
-import json
 import os
 import unittest
 from pathlib import Path
-from certidigital import CertiDigitalException
 from certidigital import CertiDigitalManager
 from certidigital import CertiDigitalUtil
 
@@ -52,23 +50,23 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
         logout_response = cm.get_logged_out_from_api(auth_info["clientId"], auth_info["clientSecret"], cls.__api_token["access_token"], auth_info["logoutUrl"])
         print("Logout response code: " + logout_response)
 
-    def test_advanced_credential_ok(self):
+    def test_advanced_credential_creation_ok(self):
         """ Creates an advanced credential... """
 
-        # Get logged user info...
+        # Get logged user info to gather university and issuing Center ids...
         manager = CertiDigitalManager()
         cm = manager
         user_info = cm.get_working_user_info(self.__api_token["access_token"])
+        university_id = 3
         print("User info response: " + str(user_info))
 
-        # Get issuing center info...
+        # Get issuing center info...Although for the tests we will use just issuing center 4...
         issuing_centers_info = cm.get_issuing_center_info(self.__api_token["access_token"])
-        # Although we get the info, for the tests we will use just issuing center 4...
         issuing_center = 4
         print("Issuing centers info: " + str(issuing_centers_info))
 
         # 1. Get activities to create and call creation api endpoint...
-        # 2. After creating activities link to awarding organization...
+        # 2. After creating activities link to awarding organization (compulsory)...
         util = CertiDigitalUtil()
         activities_json = util.read_data_from_json(self.__path_data + "/advancedcredential/activities.json", "r")
         activities_ids = []
@@ -76,8 +74,8 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             activity_creation_response = cm.create_new_activity(issuing_center, activity, self.__api_token["access_token"])
             print("Activity creation response: " + str(activity_creation_response))
             activities_ids.append(activity_creation_response["oid"])
-            organization_relation_response = cm.rel_organization_to_activity(issuing_center, activity_creation_response["oid"], 3, self.__api_token["access_token"])
-            print("Organization relation to activity response: " + str(organization_relation_response))
+            organization_relation_response = cm.rel_organization_to_activity(issuing_center, activity_creation_response["oid"], university_id, self.__api_token["access_token"])
+            print("Awarding organization relation to activity response: " + str(organization_relation_response))
 
         # 1. Get assessments to create and call creation api endpoint...
         assessments_json = util.read_data_from_json(self.__path_data + "/advancedcredential/assessments.json", "r")
@@ -96,9 +94,10 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             learning_outcomes_ids.append(learning_outcome_creation_response["oid"])
 
         # 1. Get achievements to create and call creation api endpoint...
-        # 2. Link the assesments to the achievements...
+        # 2. Link the assessments to the achievements...
         # 3. Link the learning outcomes to the achievements...
         # 4. Link the activities to the achievements...
+        # 5. Link the awarding organization to the achievements...
         achievements_json = util.read_data_from_json(self.__path_data + "/advancedcredential/achievements.json", "r")
         achievements_ids = []
         for achievement in achievements_json:
@@ -112,6 +111,8 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             print("Learning outcomes relation to achievement response: " + str(learning_outcomes_relation_response))
             activities_relation_response = cm.rel_activities_to_achievement(issuing_center, achievements_creation_response["oid"], activities_ids, self.__api_token["access_token"])
             print("Activities relation to achievement response: " + str(activities_relation_response))
+            organization_relation_response = cm.rel_organization_to_achievement(issuing_center, achievements_creation_response["oid"], university_id, self.__api_token["access_token"])
+            print("Awarding organization relation to achievement response: " + str(organization_relation_response))
 
         # 1. Get credentials to create, link activities and assessments, call creation api endpoint...
         # 2. Link a diploma already created to the credential...
@@ -122,8 +123,11 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             credential_creation_response = cm.create_new_credential(issuing_center, credential, self.__api_token["access_token"])
             print("Credential creation response: " + str(credential_creation_response))
             credentials_ids.append(credential_creation_response["oid"])
-            #diploma_relation_response = cm.rel_diploma_to_credential(issuing_center, credential_creation_response["oid"], 1, self.__api_token["access_token"])
-            #print("Diploma relation response: " + str(diploma_relation_response))
+            for achievement in achievements_ids:
+                achievement_relation_response = cm.rel_achievement_to_credential(issuing_center, credential_creation_response["oid"], achievement, self.__api_token["access_token"])
+                print("Achievement relation response: " + str(achievement_relation_response))
+            diploma_relation_response = cm.rel_diploma_to_credential(issuing_center, credential_creation_response["oid"], 17, self.__api_token["access_token"])
+            print("Diploma relation response: " + str(diploma_relation_response))
 
         # Store ids of entities created to be deleted on next run...
         ids_dict = {"activities": activities_ids, "credentials": credentials_ids, "assessments": assessments_ids, "learningOutcomes": learning_outcomes_ids, "achievements": achievements_ids}
