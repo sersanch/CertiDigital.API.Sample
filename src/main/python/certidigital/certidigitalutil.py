@@ -74,4 +74,4 @@ class CertiDigitalUtil:
             if status_count[status-1] != 0:
                 print(status_map[status] + ": " + str(status_count[status-1]))
         print("-----------------------------------------------------------------")
-        return uuid_list, status_count[9]
+        return uuid_list, status_count[9]+status_count[8]+status_count[7]+status_count[10]

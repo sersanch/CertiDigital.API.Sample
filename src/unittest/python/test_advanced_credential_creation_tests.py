@@ -8,14 +8,14 @@ from certidigital import CertiDigitalUtil
 
 
 class TestAdvancedCredentialCreation(unittest.TestCase):
-    """ Creates tests for a complex credential of a subject
-        Credential contains an achievement an activity an assessment and a diploma """
+    """ Creates tests for a complex credential of a subject in a grade.
+        Credential contains an achievement, activities, assessment, learning outcomes and a diploma """
 
     __path_data = str(Path.home()) + "/PycharmProjects/TestCertiDigital/src/data/"
 
     @classmethod
     def setUpClass(cls):
-        """ Delete entities stored on the previous run... """
+        """ Get API Token for the session and Delete entities stored on the previous run... """
         util = CertiDigitalUtil()
         auth_info = util.read_data_from_json(cls.__path_data + "/auth.json", "r")
         cm = CertiDigitalManager()
@@ -53,14 +53,14 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
     def test_advanced_credential_creation_ok(self):
         """ Creates an advanced credential... """
 
-        # Get logged user info to gather university and issuing Center ids...
+        # 1. Get logged user info to gather university and issuing Center ids...
         manager = CertiDigitalManager()
         cm = manager
         user_info = cm.get_working_user_info(self.__api_token["access_token"])
         university_id = 3
         print("User info response: " + str(user_info))
 
-        # Get issuing center info...Although for the tests we will use just issuing center 4...
+        # 1. Get issuing center info...Although for the tests we will use just issuing center 4...
         issuing_centers_info = cm.get_issuing_center_info(self.__api_token["access_token"])
         issuing_center = 4
         print("Issuing centers info: " + str(issuing_centers_info))
