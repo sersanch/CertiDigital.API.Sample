@@ -32,17 +32,17 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
         print("Logout response code: " + logout_response)
 
     def test_advanced_credential_issue(self):
-        """ Issues digital credentials to recipients... """
+        """ Issues digital credentials to recipients...
+            Pre-requisites: 1. A credential template exists in the system. Specifically the one in the idlist.json file """
 
         # Get logged user info...
-        manager = CertiDigitalManager()
-        cm = manager
+        cm = CertiDigitalManager()
         user_info = cm.get_working_user_info(self.__api_token["access_token"])
         print("User info response: " + str(user_info))
 
-        # Get issuing center info (for the tests we will use just issuing center 4)...
+        # Get issuing center info (must be known in advance by the client app)...
         issuing_centers_info = cm.get_issuing_center_info(self.__api_token["access_token"])
-        issuing_center = 4
+        issuing_center = 1
         print("Issuing centers info: " + str(issuing_centers_info))
 
         start_time = time.time()
@@ -52,7 +52,7 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
         ids = util.read_data_from_json(self.__path_data + "/advancedcredential/idlist.json", "r")
         credential_id = ids["credentials"][0]
 
-        # 1. Downloads the credential XLS template to be used for issuance (the fields are defined in the JSON template_body.json)...
+        # 1. Download the credential XLS template to be used for issuance (the fields are defined in the JSON template_body.json)...
         #    Fill downloaded XLS with recipients data (file EmissionRecipients.xls)...
         credential_template_response = cm.get_credential_template(issuing_center, credential_id, self.__api_token["access_token"])
         print("Credential template response: " + str(credential_template_response))

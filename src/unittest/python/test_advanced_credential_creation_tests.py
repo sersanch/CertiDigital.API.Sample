@@ -8,14 +8,14 @@ from certidigital import CertiDigitalUtil
 
 
 class TestAdvancedCredentialCreation(unittest.TestCase):
-    """ Creates tests for a complex credential of a subject in a grade.
-        Credential contains an achievement, activities, assessment, learning outcomes and a diploma """
+    """ Creates tests for an advanced credential...
+        Credential contains an achievement, some activities, one assessment, some learning outcomes and a diploma... """
 
     __path_data = str(Path.home()) + "/PycharmProjects/TestCertiDigital/src/data/"
 
     @classmethod
     def setUpClass(cls):
-        """ Get API Token for the session and Delete entities stored on the previous run... """
+        """ Get API Token for the session and delete entities stored on the previous run... """
         util = CertiDigitalUtil()
         auth_info = util.read_data_from_json(cls.__path_data + "/auth.json", "r")
         cm = CertiDigitalManager()
@@ -51,18 +51,25 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
         print("Logout response code: " + logout_response)
 
     def test_advanced_credential_creation_ok(self):
-        """ Creates an advanced credential... """
+        """ Creates an advanced credential...
+            Pre-requisites: 1. A university and an issuing_center must exist associated to the user
+                            2. An organization must exist (awarding organization)
+                            3. A diploma must have been previously created
+            Only hardcoded ids are: 1. Issuing Center id: when there are several, the client application needs to know which one to use...
+                                    2. Awarding Organization id: the client needs to know which one to use in case there's several...
+                                    3. Diploma id: diploma to be linked to the credential... """
 
-        # 1. Get logged user info to gather university and issuing Center ids...
-        manager = CertiDigitalManager()
-        cm = manager
+        # 1. Get logged user info to gather university id and some other data...
+        cm = CertiDigitalManager()
         user_info = cm.get_working_user_info(self.__api_token["access_token"])
-        university_id = 3
+        university_id = user_info["universityId"]
         print("User info response: " + str(user_info))
+        # Awarding organization to be used. Must be known in advance...
+        organization_id = 1
 
-        # 1. Get issuing center info...Although for the tests we will use just issuing center 4...
+        # 1. Get issuing center info (but the id must be known in advance)...
         issuing_centers_info = cm.get_issuing_center_info(self.__api_token["access_token"])
-        issuing_center = 4
+        issuing_center = 1
         print("Issuing centers info: " + str(issuing_centers_info))
 
         # 1. Get activities to create and call creation api endpoint...
@@ -74,7 +81,7 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             activity_creation_response = cm.create_new_activity(issuing_center, activity, self.__api_token["access_token"])
             print("Activity creation response: " + str(activity_creation_response))
             activities_ids.append(activity_creation_response["oid"])
-            organization_relation_response = cm.rel_organization_to_activity(issuing_center, activity_creation_response["oid"], university_id, self.__api_token["access_token"])
+            organization_relation_response = cm.rel_organization_to_activity(issuing_center, activity_creation_response["oid"], organization_id, self.__api_token["access_token"])
             print("Awarding organization relation to activity response: " + str(organization_relation_response))
 
         # 1. Get assessments to create and call creation api endpoint...
@@ -84,6 +91,8 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             assessment_creation_response = cm.create_new_assessment(issuing_center, assessment, self.__api_token["access_token"])
             print("Assessment creation response: " + str(assessment_creation_response))
             assessments_ids.append(assessment_creation_response["oid"])
+            organization_relation_response = cm.rel_organization_to_assessment(issuing_center, assessment_creation_response["oid"], organization_id, self.__api_token["access_token"])
+            print("Awarding organization relation to assessment response: " + str(organization_relation_response))
 
         # 1. Get learning outcomes to create and call creation api endpoint...
         learning_outcomes_json = util.read_data_from_json(self.__path_data + "/advancedcredential/learningOutcomes.json", "r")
@@ -111,11 +120,15 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             print("Learning outcomes relation to achievement response: " + str(learning_outcomes_relation_response))
             activities_relation_response = cm.rel_activities_to_achievement(issuing_center, achievements_creation_response["oid"], activities_ids, self.__api_token["access_token"])
             print("Activities relation to achievement response: " + str(activities_relation_response))
-            organization_relation_response = cm.rel_organization_to_achievement(issuing_center, achievements_creation_response["oid"], university_id, self.__api_token["access_token"])
+            organization_relation_response = cm.rel_organization_to_achievement(issuing_center, achievements_creation_response["oid"], organization_id, self.__api_token["access_token"])
             print("Awarding organization relation to achievement response: " + str(organization_relation_response))
 
+        # 1. Create the diploma information for credential display...
+        # TODO: Create the diploma on-the-fly with thymealeaf and logo...
+        diploma_id = 1
+
         # 1. Get credentials to create, link activities and assessments, call creation api endpoint...
-        # 2. Link a diploma already created to the credential...
+        # 2. Link the diploma already created to the credential...
         credentials_json = util.read_data_from_json(self.__path_data + "/advancedcredential/credentials.json", "r")
         credentials_ids = []
         for credential in credentials_json:
@@ -126,7 +139,7 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
             for achievement in achievements_ids:
                 achievement_relation_response = cm.rel_achievement_to_credential(issuing_center, credential_creation_response["oid"], achievement, self.__api_token["access_token"])
                 print("Achievement relation response: " + str(achievement_relation_response))
-            diploma_relation_response = cm.rel_diploma_to_credential(issuing_center, credential_creation_response["oid"], 17, self.__api_token["access_token"])
+            diploma_relation_response = cm.rel_diploma_to_credential(issuing_center, credential_creation_response["oid"], diploma_id, self.__api_token["access_token"])
             print("Diploma relation response: " + str(diploma_relation_response))
 
         # Store ids of entities created to be deleted on next run...

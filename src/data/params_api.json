@@ -1,70 +1,74 @@
 [
   {
     "apiId": "getUniversity",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/university"
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/university"
   },
   {
     "apiId": "getUserInfo",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/users/info"
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/users/info"
   },
   {
     "apiId": "getIssuingCentersInfo",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/issuing-center"
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/issuing-center"
+  },
+  {
+    "apiId": "getOrganizationsInfo",
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/organizations"
   },
   {
     "apiId": "createActivity",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/activities"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/activities"
   },
   {
     "apiId": "createCredential",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/credentials"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/credentials"
   },
   {
     "apiId": "deleteActivity",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/activities"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/activities"
   },
   {
     "apiId": "deleteCredential",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/credentials"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/credentials"
   },
   {
     "apiId": "createAssessment",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/assessments"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/assessments"
   },
   {
     "apiId": "deleteAssessment",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/assessments"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/assessments"
   },
   {
     "apiId": "createLearningOutcome",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/learning-outcomes"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/learning-outcomes"
   },
   {
     "apiId": "deleteLearningOutcome",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/learning-outcomes"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/learning-outcomes"
   },
-    {
+  {
     "apiId": "createAchievement",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/achievements"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/achievements"
   },
   {
     "apiId": "deleteAchievement",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-bridge/api/v1/achievements"
+    "apiUrl": "https://app.test.certidigital.es/certi-bridge/api/v1/achievements"
   },
   {
     "apiId": "getEmissionsBlockData",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions-block"
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/emissions-block"
   },
   {
     "apiId": "emissionsSend",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions/send"
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/emissions/send"
   },
   {
     "apiId": "emissionsSeal",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions/seal"
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/emissions/seal"
   },
   {
     "apiId": "emissionsSendEUWallet",
-    "apiUrl": "https://certidigital-k8s.atica.um.es/certi-admin/api/v1/emissions/sendeuwallet"
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/emissions/sendeuwallet"
   }
 ]

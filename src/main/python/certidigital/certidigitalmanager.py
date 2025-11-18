@@ -57,7 +57,7 @@ class CertiDigitalManager:
             if content != '':
                 content_type = content
             api_call_headers = {'authorization': 'Bearer ' + token, 'accept': accept_header, 'Content-Type': content_type}
-            # print("Headers: " + str(api_call_headers))
+            print("Headers: " + str(api_call_headers))
             if content_type == 'application/json':
                 api_call_response = requests.post(api_url, params=api_params, json=api_data, headers=api_call_headers, timeout=3600)
             else:
@@ -93,6 +93,13 @@ class CertiDigitalManager:
         """ Gets issuing centers info... """
         util = CertiDigitalUtil()
         api_info = util.get_api_info(self.__all_apis_info, "getIssuingCentersInfo")
+        json_response = self.call_get_api(api_info["apiUrl"], "", "", token)
+        return json_response
+
+    def get_organizations_info(self, token):
+        """ Gets organizations info... """
+        util = CertiDigitalUtil()
+        api_info = util.get_api_info(self.__all_apis_info, "getOrganizationsInfo")
         json_response = self.call_get_api(api_info["apiUrl"], "", "", token)
         return json_response
 
@@ -183,6 +190,7 @@ class CertiDigitalManager:
         api_info = util.get_api_info(self.__all_apis_info, "createCredential")
         api_url = api_info["apiUrl"] + "/" + str(credential_id) + "/issue/templates"
         api_params = "issuingCenterId=" + str(issuing_center_id)
+        api_params = api_params + "&alias=" + "None"
         print("Emission process being done for credential: " + str(credential_id))
         with open(file_name, 'rb') as file:
             multipart_data = MultipartEncoder(
@@ -250,6 +258,17 @@ class CertiDigitalManager:
         print("Deleting assessment with id: " + str(assessment_id))
         json_response = self.call_delete_api(api_info["apiUrl"] + "/" + str(assessment_id), "", "", token)
         print("Deleted assessment (response code: " + json_response + ")")
+        return json_response
+
+    def rel_organization_to_assessment(self, issuing_center_id, assessment_id, organization_id, token):
+        """ Relates am organization with an assessment... """
+        util = CertiDigitalUtil()
+        api_info = util.get_api_info(self.__all_apis_info, "createAssessment")
+        api_url = api_info["apiUrl"] + "/" + str(assessment_id) + "/awardingBody"
+        api_params = "issuingCenterId=" + str(issuing_center_id)
+        request_body = {"oid": [organization_id], "singleOid": organization_id}
+        print("Relating assessment " + str(assessment_id) + " and organization " + str(organization_id))
+        json_response = self.call_post_api(api_url, '', '', api_params, request_body, token)
         return json_response
 
     def create_new_learning_outcome(self, issuing_center_id, request_body, token):
