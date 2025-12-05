@@ -11,7 +11,7 @@ from certidigital import CertiDigitalUtil
 class TestAdvancedCredentialEmission(unittest.TestCase):
     """ Creates tests for a complex credential emission """
 
-    __path_data = str(Path.home()) + "/PycharmProjects/TestCertiDigital/src/data/"
+    __path_data = str(Path.home()) + "/PycharmProjects/CertiDigital.API.Sample/src/data"
 
     @classmethod
     def setUpClass(cls):

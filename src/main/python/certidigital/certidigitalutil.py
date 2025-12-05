@@ -12,7 +12,7 @@ class CertiDigitalUtil:
     """ Main class to manage CertiDigital utilities... """
 
     def __init__(self):
-        self.__path_data = str(Path.home()) + "/PycharmProjects/TestCertiDigital/src/data"
+        self.__path_data = str(Path.home()) + "/PycharmProjects/CertiDigital.API.Sample/src/data"
 
     def read_data_from_json(self, fi, mode):
         """ Opens input json file with data of the booking, checks formats and returns data... """

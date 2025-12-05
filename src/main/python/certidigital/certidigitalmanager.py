@@ -12,7 +12,7 @@ class CertiDigitalManager:
     """ Main class to manage CertiDigital API operations... """
 
     def __init__(self):
-        self.__path_data = str(Path.home()) + "/PycharmProjects/TestCertiDigital/src/data"
+        self.__path_data = str(Path.home()) + "/PycharmProjects/CertiDigital.API.Sample/src/data"
         util = CertiDigitalUtil()
         self.__all_apis_info = util.read_data_from_json(self.__path_data + "/params_api.json", "r")
 
