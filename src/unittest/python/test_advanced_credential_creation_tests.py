@@ -11,7 +11,7 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
     """ Creates tests for an advanced credential...
         Credential contains an achievement, some activities, one assessment, some learning outcomes and a diploma... """
 
-    __path_data = str(Path.home()) + "/PycharmProjects/TestCertiDigital/src/data/"
+    __path_data = str(Path.home()) + "/PycharmProjects/CertiDigital.API.Sample/src/data/"
 
     @classmethod
     def setUpClass(cls):
@@ -65,11 +65,13 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
         university_id = user_info["universityId"]
         print("User info response: " + str(user_info))
         # Awarding organization to be used. Must be known in advance...
-        organization_id = 1
+        organization_id = 1 #TEST
+        #organization_id = 3 #PRO
 
         # 1. Get issuing center info (but the id must be known in advance)...
         issuing_centers_info = cm.get_issuing_center_info(self.__api_token["access_token"])
-        issuing_center = 1
+        issuing_center = 1 #TEST
+        #issuing_center = 2 #PRO
         print("Issuing centers info: " + str(issuing_centers_info))
 
         # 1. Get activities to create and call creation api endpoint...

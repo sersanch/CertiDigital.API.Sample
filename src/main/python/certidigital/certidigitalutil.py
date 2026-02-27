@@ -1,8 +1,12 @@
 """ MUtilities module for the resto of the CertiDigital software... """
 import json
 from pathlib import Path
+from PIL import Image
+import io
+import base64
 
 import xlwt
+from playwright.sync_api import sync_playwright
 
 from .certidigitalexception import CertiDigitalException
 import pandas as pd
@@ -74,4 +78,4 @@ class CertiDigitalUtil:
             if status_count[status-1] != 0:
                 print(status_map[status] + ": " + str(status_count[status-1]))
         print("-----------------------------------------------------------------")
-        return uuid_list, status_count[9]+status_count[8]+status_count[7]+status_count[10]
+        return uuid_list, status_count[9] #+status_count[8]+status_count[7]+status_count[10]

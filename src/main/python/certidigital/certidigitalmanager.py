@@ -1,5 +1,7 @@
 """ Main module to manage CertiDigital API operations. Includes the exposed methods... """
-
+import json
+import random
+import string
 from pathlib import Path
 import requests.exceptions
 from requests_toolbelt import MultipartEncoder
@@ -36,13 +38,16 @@ class CertiDigitalManager:
         except requests.exceptions.RequestException as e:
             raise CertiDigitalException("Error invoking to logout from the API: " + str(response.status_code)) from e
 
-    def call_get_api(self, api_url, api_params, api_data, token):
+    def call_get_api(self, api_url, api_params, api_data, token, no_json=False):
         """ Makes a post API call, to the url passed as a parameter and using the data and token provided... """
         try:
             api_call_headers = {'authorization': 'Bearer ' + token, 'accept': 'application/json', 'content-Type': 'application/json'}
             api_call_response = requests.get(api_url, params=api_params, json=api_data, headers=api_call_headers, timeout=30)
             api_call_response.raise_for_status()
-            return api_call_response.json()
+            if no_json:
+                return api_call_response
+            else:
+                return api_call_response.json()
         except requests.exceptions.RequestException as e:
             print("Error: " + api_call_response.text)
             raise CertiDigitalException(f"Error calling get API: {e}") from e
@@ -81,6 +86,13 @@ class CertiDigitalManager:
         except requests.exceptions.RequestException as e:
             print("Delete result: " + str(api_call_response.status_code) + ": " + api_call_response.text)
             return ""
+
+    def get_all_users_info(self, token):
+        """ Gets all users info... """
+        util = CertiDigitalUtil()
+        api_info = util.get_api_info(self.__all_apis_info, "getUsers")
+        json_response = self.call_get_api(api_info["apiUrl"], "", "", token)
+        return json_response
 
     def get_working_user_info(self, token):
         """ Gets working user info... """
@@ -190,7 +202,7 @@ class CertiDigitalManager:
         api_info = util.get_api_info(self.__all_apis_info, "createCredential")
         api_url = api_info["apiUrl"] + "/" + str(credential_id) + "/issue/templates"
         api_params = "issuingCenterId=" + str(issuing_center_id)
-        api_params = api_params + "&alias=" + "None"
+        api_params = api_params + "&alias=" + ''.join(random.choices(string.ascii_letters + string.digits, k=6))
         print("Emission process being done for credential: " + str(credential_id))
         with open(file_name, 'rb') as file:
             multipart_data = MultipartEncoder(
@@ -218,6 +230,30 @@ class CertiDigitalManager:
         request_body = {'uuidList': uuids_list, 'issuingCenterId': issuing_center_id}
         json_response = self.call_post_api(api_url, '', '', api_params, request_body, token)
         return json_response
+
+    def get_credential_details(self, uuid, token):
+        """ Returns the credential details including the jsonld file... """
+        util = CertiDigitalUtil()
+        api_info = util.get_api_info(self.__all_apis_info, "emissionsDetails")
+        api_url = api_info["apiUrl"] + "/" + str(uuid)
+        api_params = ""
+        json_response = self.call_get_api(api_url, api_params, "", token)
+        return json_response
+
+    def get_credential_pdf(self, jsonld_bytes, token):
+        """ Returns the PDF associated to a credential... """
+        util = CertiDigitalUtil()
+        api_info = util.get_api_info(self.__all_apis_info, "walletGetPDF")
+        api_url = api_info["apiUrl"]
+        api_params = 'locale=es&pdfType=diploma'
+        multipart_data = MultipartEncoder(
+            fields={
+                'file': ("blob", json.dumps(jsonld_bytes), 'text/xml')
+            }
+        )
+        pdf_response = self.call_post_api(api_url, 'application/pdf', multipart_data.content_type, api_params, multipart_data, token)
+        #json_response = self.call_post_api(api_url, 'application/pdf', 'multipart/form-data; boundary=----WebKitFormBoundaryUNOIBs14BDclB761', api_params, request_body, token)
+        return pdf_response
 
     def send_credentials(self, issuing_center_id, uuids_list, token):
         """ Send email to the identified credential list of uuids... """

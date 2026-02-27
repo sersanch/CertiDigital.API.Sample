@@ -1,5 +1,5 @@
 """ Test for the emission of an advanced credential for a course with several subjects and assessments... """
-
+import json
 import time
 import unittest
 from pathlib import Path
@@ -12,6 +12,7 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
     """ Creates tests for a complex credential emission """
 
     __path_data = str(Path.home()) + "/PycharmProjects/CertiDigital.API.Sample/src/data"
+    __path_output = str(Path.home()) + "/PycharmProjects/CertiDigital.API.Sample/src/unittest/output_files"
 
     @classmethod
     def setUpClass(cls):
@@ -42,7 +43,8 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
 
         # Get issuing center info (must be known in advance by the client app)...
         issuing_centers_info = cm.get_issuing_center_info(self.__api_token["access_token"])
-        issuing_center = 1
+        issuing_center = 1 #TEST
+        #issuing_center = 2 #PRO
         print("Issuing centers info: " + str(issuing_centers_info))
 
         start_time = time.time()
@@ -96,3 +98,22 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
             time.sleep(10)
         step_4_end = time.time()
         print(f"Time for step 4 (credentials sealing): {step_4_end - step_3_end:.2f} seconds")
+
+        # 6. Download PDFs associated to sealed credentials...
+        emissions_block_response = cm.get_emissions_block_data(emissions_block_id, self.__api_token["access_token"])
+        print("Emission block data response:" + str(emissions_block_response))
+        for credential in emissions_block_response["emissions"]:
+            if credential["stateId"] == 2:
+                # 6.1. Get the credential jsonld file...
+                credential_details_response = cm.get_credential_details(credential["uuid"], self.__api_token["access_token"])
+                jsonld_credential_file = credential_details_response["payload"]
+                jsonld_data = json.loads(jsonld_credential_file)
+                with open(self.__path_output + "/" + credential["uuid"] + ".jsonld", "w", encoding="utf-8") as jld_file:
+                    json.dump(jsonld_data, jld_file, indent=4, ensure_ascii=False)
+                # 6.2. Get the pdf file associated to the jsonld file and save to disk...
+                credential_pdf_response = cm.get_credential_pdf(credential_details_response, self.__api_token["access_token"])
+                if credential_pdf_response.status_code == 200:
+                    with open(self.__path_output + "/" + credential["uuid"] + ".pdf", "wb") as pdf_file:
+                        pdf_file.write(credential_pdf_response.content)
+        step_5_end = time.time()
+        print(f"Time for step 5 (credentials PDF download): {step_5_end - step_4_end:.2f} seconds")

@@ -18,7 +18,7 @@ class TestBasicCredentialCreation(unittest.TestCase):
     def setUpClass(cls):
         """ Delete entities stored on the previous run... """
         util = CertiDigitalUtil()
-        auth_info = util.read_data_from_json(cls.__path_data + "/auth.json", "r")
+        auth_info = util.read_data_from_json(cls.__path_data + "/authPRO.json", "r")
         cm = CertiDigitalManager()
         cls.__api_token = cm.get_token_from_api(auth_info["clientId"], auth_info["clientSecret"], auth_info["username"], auth_info["password"], auth_info["tokenUrl"])
 
@@ -39,7 +39,7 @@ class TestBasicCredentialCreation(unittest.TestCase):
     def tearDownClass(cls):
         """ Free resources (connections, files, etc...) """
         util = CertiDigitalUtil()
-        auth_info = util.read_data_from_json(cls.__path_data + "/auth.json", "r")
+        auth_info = util.read_data_from_json(cls.__path_data + "/authPRO.json", "r")
         cm = CertiDigitalManager()
         logout_response = cm.get_logged_out_from_api(auth_info["clientId"], auth_info["clientSecret"], cls.__api_token["access_token"], auth_info["logoutUrl"])
         print("Logout response code: " + logout_response)

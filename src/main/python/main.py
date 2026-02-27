@@ -34,7 +34,7 @@ def call_get_api(api_url, api_params, api_type, token):
 def main():
     # Read file with data for API connection...
     try:
-        with open('../../data/auth.json') as f:
+        with open('data/authPRO.json') as f:
             conn_params = json.load(f)
     except FileNotFoundError as e:
         print(f'Connection configuration file not found... {e}')

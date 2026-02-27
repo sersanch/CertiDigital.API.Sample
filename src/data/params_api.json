@@ -4,6 +4,10 @@
     "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/university"
   },
   {
+    "apiId": "getUsers",
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/users"
+  },
+  {
     "apiId": "getUserInfo",
     "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/users/info"
   },
@@ -70,5 +74,13 @@
   {
     "apiId": "emissionsSendEUWallet",
     "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/emissions/sendeuwallet"
+  },
+  {
+    "apiId": "emissionsDetails",
+    "apiUrl": "https://app.test.certidigital.es/certi-admin/api/v1/emissions/details"
+  },
+  {
+    "apiId": "walletGetPDF",
+    "apiUrl": "https://app.test.certidigital.es/europass2/edci-viewer/api/v1/credentials/presentation"
   }
 ]

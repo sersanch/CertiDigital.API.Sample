@@ -1,0 +1,86 @@
+[
+  {
+    "apiId": "getUniversity",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/university"
+  },
+  {
+    "apiId": "getUserInfo",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/users/info"
+  },
+  {
+    "apiId": "getIssuingCentersInfo",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/issuing-center"
+  },
+  {
+    "apiId": "getOrganizationsInfo",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/organizations"
+  },
+  {
+    "apiId": "createActivity",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/activities"
+  },
+  {
+    "apiId": "createCredential",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/credentials"
+  },
+    {
+    "apiId": "getUsers",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/users"
+  },
+  {
+    "apiId": "deleteActivity",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/activities"
+  },
+  {
+    "apiId": "deleteCredential",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/credentials"
+  },
+  {
+    "apiId": "createAssessment",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/assessments"
+  },
+  {
+    "apiId": "deleteAssessment",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/assessments"
+  },
+  {
+    "apiId": "createLearningOutcome",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/learning-outcomes"
+  },
+  {
+    "apiId": "deleteLearningOutcome",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/learning-outcomes"
+  },
+  {
+    "apiId": "createAchievement",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/achievements"
+  },
+  {
+    "apiId": "deleteAchievement",
+    "apiUrl": "https://app.certidigital.es/certi-bridge/api/v1/achievements"
+  },
+  {
+    "apiId": "getEmissionsBlockData",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/emissions-block"
+  },
+  {
+    "apiId": "emissionsSend",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/emissions/send"
+  },
+  {
+    "apiId": "emissionsSeal",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/emissions/seal"
+  },
+  {
+    "apiId": "emissionsSendEUWallet",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/emissions/sendeuwallet"
+  },
+    {
+    "apiId": "emissionsDetails",
+    "apiUrl": "https://app.certidigital.es/certi-admin/api/v1/emissions/details"
+  },
+  {
+    "apiId": "walletGetPDF",
+    "apiUrl": "https://app.certidigital.es/europass2/edci-viewer/api/v1/credentials/presentation"
+  }
+]
