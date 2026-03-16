@@ -196,13 +196,15 @@ class CertiDigitalManager:
         json_response = self.call_post_api(api_url, 'application/octet-stream', '', api_params, request_body, token)
         return json_response
 
-    def credentials_issue_through_template(self, issuing_center_id, credential_id, token, file_name):
+    def credentials_issue_through_template(self, issuing_center_id, credential_id, token, file_name, alias, block_id):
         """ Calls API to issue the credentials through an XLS template already filled with the recipients... """
         util = CertiDigitalUtil()
         api_info = util.get_api_info(self.__all_apis_info, "createCredential")
         api_url = api_info["apiUrl"] + "/" + str(credential_id) + "/issue/templates"
         api_params = "issuingCenterId=" + str(issuing_center_id)
-        api_params = api_params + "&alias=" + ''.join(random.choices(string.ascii_letters + string.digits, k=6))
+        api_params = api_params + "&alias=" + alias
+        if block_id is not None:
+            api_params = api_params + "&emissionsBlockId=" + str(block_id)
         print("Emission process being done for credential: " + str(credential_id))
         with open(file_name, 'rb') as file:
             multipart_data = MultipartEncoder(

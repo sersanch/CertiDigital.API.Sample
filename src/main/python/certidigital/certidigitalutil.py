@@ -64,6 +64,36 @@ class CertiDigitalUtil:
         wb.save(destination_file_name)
         return True
 
+    def split_recipients_output(self, file_name, block_size, header_rows=4):
+        """ Splits EmissionRecipientsOutput.xls into chunks of block_size recipients (keeps header rows). """
+        if block_size < 1:
+            raise CertiDigitalException("Emission block size must be >= 1")
+        data_df = pd.read_excel(file_name, header=None)
+        if data_df.empty:
+            return [file_name]
+        header_df = data_df.iloc[:header_rows]
+        recipients_df = data_df.iloc[header_rows:]
+        if recipients_df.empty:
+            return [file_name]
+        base_path = Path(file_name)
+        chunk_files = []
+        chunk_index = 1
+        for chunk_start in range(0, len(recipients_df), block_size):
+            chunk_df = recipients_df.iloc[chunk_start:chunk_start + block_size]
+            wb = xlwt.Workbook()
+            sheet = wb.add_sheet('data')
+            for row_num, row in enumerate(header_df.itertuples(index=False, name=None)):
+                for col_num, value in enumerate(row):
+                    sheet.write(row_num, col_num, value)
+            for row_num, row in enumerate(chunk_df.itertuples(index=False, name=None)):
+                for col_num, value in enumerate(row):
+                    sheet.write(row_num + header_rows, col_num, value)
+            chunk_file = str(base_path.with_name(f"{base_path.stem}_part{chunk_index}{base_path.suffix}"))
+            wb.save(chunk_file)
+            chunk_files.append(chunk_file)
+            chunk_index += 1
+        return chunk_files
+
     def process_emission_block_status(self, emission_block_id, emission_block):
         status_map = {1: "Issued (not sealed)", 2: "Sealed", 3: "Rejected", 4: "Issued with error", 5: "Duplicated", 6: "Re-Issued",
                       7: "Sealed with error", 8: "Sent with error", 9: "Sent with error (EU)", 10: "Queued for sealing",

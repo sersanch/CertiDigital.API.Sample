@@ -1,5 +1,7 @@
 """ Test for the emission of an advanced credential for a course with several subjects and assessments... """
 import json
+import random
+import string
 import time
 import unittest
 from pathlib import Path
@@ -66,15 +68,26 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
         step_1_end = time.time()
         print(f"Time for step 1 (XLS template download and fill with recipients): {step_1_end - start_time:.2f} seconds")
 
-        # 2. Issue the credential...
-        file_name = self.__path_data + "/advancedcredential/EmissionRecipientsOutput.xls"
-        credential_emission_response = cm.credentials_issue_through_template(issuing_center, credential_id, self.__api_token["access_token"], file_name)
-        print("Credential emission response: " + str(credential_emission_response))
-        step_2_end = time.time()
-        elapsed = step_2_end - step_1_end
-        print("Time for step 2 (emissión process for " + str(len(credential_emission_response)) + " recipients): " + str(round(elapsed, 2)) + " seconds...")
+        params = util.read_data_from_json(self.__path_data + "/params.json", "r")
+        emission_block_size = int(params.get("emission_block_size", 1))
+        alias = ''.join(random.choices(string.ascii_letters + string.digits, k=6))
+        credential_emission_response = None
+        emissions_block_id = None
 
-        # 3. Get the emission id (emission block) from the response...
+        # 2. Issue the credential in blocks...
+        file_name = self.__path_data + "/advancedcredential/EmissionRecipientsOutput.xls"
+        block_files = util.split_recipients_output(file_name, emission_block_size)
+        for block_index, block_file in enumerate(block_files, start=1):
+            print(f"--- Emission block {block_index} of {len(block_files)} ---")
+            block_start_time = time.time()
+            credential_emission_response = cm.credentials_issue_through_template(issuing_center, credential_id, self.__api_token["access_token"], block_file, alias=alias, block_id=emissions_block_id)
+            print("Credential emission response: " + str(credential_emission_response))
+            step_2_end = time.time()
+            elapsed = step_2_end - block_start_time
+            print("Time for step 2 (emissión process for " + str(len(credential_emission_response)) + " recipients): " + str(round(elapsed, 2)) + " seconds...")
+            emissions_block_id = credential_emission_response[0]["emissionsBlockId"]
+
+        # 3. Get the emission id (emission block) from the (last) response (which is common to all executions)...
         emissions_block_id = credential_emission_response[0]["emissionsBlockId"]
         emissions_block_response = cm.get_emissions_block_data(emissions_block_id, self.__api_token["access_token"])
 
@@ -103,7 +116,7 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
         emissions_block_response = cm.get_emissions_block_data(emissions_block_id, self.__api_token["access_token"])
         print("Emission block data response:" + str(emissions_block_response))
         for credential in emissions_block_response["emissions"]:
-            if credential["stateId"] == 2:
+            if credential["stateId"] == 2: # Sealed only...
                 # 6.1. Get the credential jsonld file...
                 credential_details_response = cm.get_credential_details(credential["uuid"], self.__api_token["access_token"])
                 jsonld_credential_file = credential_details_response["payload"]
