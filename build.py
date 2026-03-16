@@ -1,4 +1,6 @@
 #   -*- coding: utf-8 -*-
+import os
+import certifi
 from pybuilder.core import use_plugin, init
 
 use_plugin("python.core")
@@ -10,6 +12,8 @@ use_plugin("python.distutils")
 
 name = "TestCertiDigital"
 default_task = "publish"
+
+os.environ['REQUESTS_CA_BUNDLE'] = "/Users/sergiosanchezherranz/certs/custom_cacerts.pem"
 
 
 @init
