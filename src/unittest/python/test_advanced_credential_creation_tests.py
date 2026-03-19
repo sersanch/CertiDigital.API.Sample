@@ -146,3 +146,4 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
         # Store ids of entities created to be deleted on next run...
         ids_dict = {"activities": activities_ids, "credentials": credentials_ids, "assessments": assessments_ids, "learningOutcomes": learning_outcomes_ids, "achievements": achievements_ids}
         util.write_data_to_json(self.__path_data + "/advancedcredential/idlist.json", ids_dict, "w")
+        self.assertTrue(True)

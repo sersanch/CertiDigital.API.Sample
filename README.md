@@ -19,7 +19,7 @@
    - `Path.home()/PycharmProjects/CertiDigital.API.Sample/...`
    Si has clonado el proyecto en otra ruta, actualiza `__path_data` y `__path_output` en los tests o crea un enlace simbolico.
 7. Asegura los prerequisitos en la plataforma CertiDigital:
-   - Existe universidad e issuing center asociados al usuario.
+   - Existe universidad e issuing center (id conocido) asociados al usuario.
    - Existe una organizacion awarding (id conocido).
    - Existe un diploma (id conocido) para enlazar con la credencial.
 8. Ejecuta los tests (en este orden, el primero crea la plantilla de la credencial, el segundo emite, envía, sella...):

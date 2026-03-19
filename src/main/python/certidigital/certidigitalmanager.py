@@ -1,7 +1,5 @@
 """ Main module to manage CertiDigital API operations. Includes the exposed methods... """
 import json
-import random
-import string
 from pathlib import Path
 import requests.exceptions
 from requests_toolbelt import MultipartEncoder
@@ -46,8 +44,7 @@ class CertiDigitalManager:
             api_call_response.raise_for_status()
             if no_json:
                 return api_call_response
-            else:
-                return api_call_response.json()
+            return api_call_response.json()
         except requests.exceptions.RequestException as e:
             print("Error: " + api_call_response.text)
             raise CertiDigitalException(f"Error calling get API: {e}") from e
@@ -70,8 +67,7 @@ class CertiDigitalManager:
             api_call_response.raise_for_status()
             if accept_header == 'application/json':
                 return api_call_response.json()
-            else:
-                return api_call_response
+            return api_call_response
         except requests.exceptions.RequestException as e:
             print("Error: " + api_call_response.text)
             raise CertiDigitalException(f"Error calling post API: {e}") from e
@@ -83,7 +79,7 @@ class CertiDigitalManager:
             api_call_response = requests.delete(api_url, params=api_params, json=api_data, headers=api_call_headers, timeout=30)
             api_call_response.raise_for_status()
             return str(api_call_response.status_code)
-        except requests.exceptions.RequestException as e:
+        except requests.exceptions.RequestException:
             print("Delete result: " + str(api_call_response.status_code) + ": " + api_call_response.text)
             return ""
 
@@ -257,7 +253,7 @@ class CertiDigitalManager:
         #json_response = self.call_post_api(api_url, 'application/pdf', 'multipart/form-data; boundary=----WebKitFormBoundaryUNOIBs14BDclB761', api_params, request_body, token)
         return pdf_response
 
-    def send_credentials(self, issuing_center_id, uuids_list, token):
+    def send_credentials(self, uuids_list, token):
         """ Send email to the identified credential list of uuids... """
         util = CertiDigitalUtil()
         api_info = util.get_api_info(self.__all_apis_info, "emissionsSend")
@@ -386,4 +382,3 @@ class CertiDigitalManager:
         print("Relating achievement " + str(achievement_id) + " and organization " + str(organization_id))
         json_response = self.call_post_api(api_url, '', '', api_params, request_body, token)
         return json_response
-

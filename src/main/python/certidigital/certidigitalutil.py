@@ -1,15 +1,11 @@
 """ MUtilities module for the resto of the CertiDigital software... """
 import json
 from pathlib import Path
-from PIL import Image
-import io
-import base64
 
 import xlwt
-from playwright.sync_api import sync_playwright
+import pandas as pd
 
 from .certidigitalexception import CertiDigitalException
-import pandas as pd
 
 
 class CertiDigitalUtil:
@@ -24,9 +20,9 @@ class CertiDigitalUtil:
             with open(fi, encoding='UTF-8', mode=mode) as f:
                 data = json.load(f)
         except FileNotFoundError as e:
-            raise CertiDigitalException("Wrong file or file path")
-        except json.JSONDecodeError:
-            raise CertiDigitalException("Wrong json file format")
+            raise CertiDigitalException("Wrong file or file path") from e
+        except json.JSONDecodeError as e:
+            raise CertiDigitalException("Wrong json file format") from e
         return data
 
     def write_data_to_json(self, fi, data, mode):
@@ -45,6 +41,7 @@ class CertiDigitalUtil:
         for api in api_list:
             if api["apiId"] == api_id:
                 return api
+        return None
 
     def fill_recipients_to_template(self):
         """ Copies the data inside EmissionRecipients.xls into the EmissionRecipientsTemplate.xls file"""
@@ -95,6 +92,7 @@ class CertiDigitalUtil:
         return chunk_files
 
     def process_emission_block_status(self, emission_block_id, emission_block):
+        """ Handles the emission block status report... """
         status_map = {1: "Issued (not sealed)", 2: "Sealed", 3: "Rejected", 4: "Issued with error", 5: "Duplicated", 6: "Re-Issued",
                       7: "Sealed with error", 8: "Sent with error", 9: "Sent with error (EU)", 10: "Queued for sealing",
                       11: 'Queued for sending', 12: "Sent to validation", 13: "No status"}

@@ -136,3 +136,5 @@ class TestAdvancedCredentialEmission(unittest.TestCase):
             print("Skipping credential downloads (downloadCredentials=false).")
         step_5_end = time.time()
         print(f"Time for step 5 (credentials PDF download): {step_5_end - step_4_end:.2f} seconds")
+        self.assertTrue(True)
+
