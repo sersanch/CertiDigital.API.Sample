@@ -162,3 +162,4 @@ cython_debug/
 /src/data/authPre.json
 /src/data/authTest.json
 /src/data/auth.json
+/src/unittest/output_files

@@ -22,13 +22,13 @@
    - Existe universidad e issuing center asociados al usuario.
    - Existe una organizacion awarding (id conocido).
    - Existe un diploma (id conocido) para enlazar con la credencial.
-8. Ejecuta los tests (orden recomendado):
+8. Ejecuta los tests (en este orden, el primero crea la plantilla de la credencial, el segundo emite, envía, sella...):
    ```bash
    python -m unittest src/unittest/python/test_advanced_credential_creation_tests.py
    python -m unittest src/unittest/python/test_advanced_credential_emission_tests.py
    ```
 
-## Tests existentes
+## Detalle de los Tests existentes
 
 ### `test_advanced_credential_creation_tests.py`
 Test de integracion que crea una credencial avanzada completa.
