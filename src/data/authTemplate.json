@@ -1,0 +1,8 @@
+{
+    "clientId": "xxxxxxx",
+    "clientSecret": "xxxxxxx",
+    "username": "xxxxxxx",
+    "password": "xxxxxxx",
+    "tokenUrl": "https://app.XXXXX.certidigital.es/realms/certidigi/protocol/openid-connect/token",
+    "logoutUrl": "https://app.XXXXX.certidigital.es/realms/certidigi/protocol/openid-connect/logout"
+}

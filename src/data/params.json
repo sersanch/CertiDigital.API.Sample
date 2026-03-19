@@ -1,3 +1,7 @@
 {
-  "emission_block_size": 25
+  "emission_block_size": 25,
+  "downloadCredentials": false,
+  "organization_id": 1,
+  "issuing_center": 1,
+  "diploma_id": 1
 }

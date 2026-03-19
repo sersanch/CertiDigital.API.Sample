@@ -61,17 +61,16 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
 
         # 1. Get logged user info to gather university id and some other data...
         cm = CertiDigitalManager()
+        util = CertiDigitalUtil()
+        params = util.read_data_from_json(self.__path_data + "/params.json", "r")
         user_info = cm.get_working_user_info(self.__api_token["access_token"])
-        university_id = user_info["universityId"]
         print("User info response: " + str(user_info))
         # Awarding organization to be used. Must be known in advance...
-        organization_id = 1 #TEST
-        #organization_id = 3 #PRO
+        organization_id = params["organization_id"]
 
         # 1. Get issuing center info (but the id must be known in advance)...
         issuing_centers_info = cm.get_issuing_center_info(self.__api_token["access_token"])
-        issuing_center = 1 #TEST
-        #issuing_center = 2 #PRO
+        issuing_center = params["issuing_center"]
         print("Issuing centers info: " + str(issuing_centers_info))
 
         # 1. Get activities to create and call creation api endpoint...
@@ -127,7 +126,7 @@ class TestAdvancedCredentialCreation(unittest.TestCase):
 
         # 1. Create the diploma information for credential display...
         # TODO: Create the diploma on-the-fly with thymealeaf and logo...
-        diploma_id = 1
+        diploma_id = params["diploma_id"]
 
         # 1. Get credentials to create, link activities and assessments, call creation api endpoint...
         # 2. Link the diploma already created to the credential...
